@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class imageup extends Model
+class student extends Model
 {
     use HasFactory;
-    protected $table= 'imageups';
-    protected $fillable= ['name','email','course','section','image'];
+    protected $table= 'students';
+    protected $fillable= ['student_id','payment'];
 
 }

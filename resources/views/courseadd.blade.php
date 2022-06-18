@@ -22,7 +22,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h4>How to Fetch data in Laravel 8</h4>
+                    <h4> show the database</h4>
                 </div>
                 <div class="card-body">
 
@@ -40,22 +40,22 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($student as $item)
+                            @foreach ($imageup as $ite)
                             <tr>
                                 <td>{{ $item->id }}</td>
-                                <td><img  height="30px" weight="40px" src="{{asset($item->image)}}" class="img-thumbnail"></td>
-                                <td>{{ $item->name }}</td>
-                                <td>{{ $item->email }}</td>
-                                <td>{{ $item->course }}</td>
-                                <td>{{ $item->section }}</td>
+                                <td><img  height="30px" weight="40px" src="{{asset($ite->image)}}" class="img-thumbnail"></td>
+                                <td>{{ $ite->name }}</td>
+                                <td>{{ $ite->email }}</td>
+                                <td>{{ $ite->course }}</td>
+                                <td>{{ $ite->section }}</td>
                               
                             
                                 <td>
-                                    <a href="{{url('edit-data/'.$item->id)}}" class="btn btn-primary btn-ms">Edit</a>
+                                    <a href="{{url('edit-data/'.$ite->id)}}" class="btn btn-primary btn-ms">Edit</a>
                                   
                                 </td>
                                 <td>
-                                <a href="{{url('delete-student/'.$item->id)}}" class="btn btn-danger btn-ms">delete</a> 
+                                <a href="{{url('delete-student/'.$ite->id)}}" class="btn btn-danger btn-ms">delete</a> 
                                 </td>
                             </tr>
                             @endforeach

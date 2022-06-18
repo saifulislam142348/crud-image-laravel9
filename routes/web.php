@@ -1,5 +1,5 @@
 <?php
-use App\Http\Controllers\imagecontroller;
+use App\Http\Controllers\studentcontroller;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,9 +16,17 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-route::get('/insert-info',[imagecontroller::class,'insert']);
-route::post('/insert-info',[imagecontroller::class,'store']);
-route::get('/data-show',[imagecontroller::class,'viewdata']);
-route::get('edit-data/{$id}',[imagecontroller::class,'edit']);
-route::get('/payment',[imagecontroller::class,'payment']);
+route::get('/insert-info',[studentcontroller::class,'insert']);
+route::post('/insert-info',[istudentcontroller::class,'store']);
+route::get('/data-show',[istudentcontroller::class,'viewdata']);
+route::get('edit-data/{$id}',[studentcontroller::class,'edit']);
+route::get('/payment',[studentcontroller::class,'payment']);
+route::post('/payment',[studentcontroller::class,'paymentstore']);
+route::get('/admin',[studentcontroller::class,'admin']);
+route::get('/std',[studentecontroller::class,'stddash']);
+route::get('/course',[studentecontroller::class,'addcourse']);
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

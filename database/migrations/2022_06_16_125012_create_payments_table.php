@@ -13,14 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('imageups', function (Blueprint $table) {
+        Schema::create('payments', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email');
-            $table->string('course');
-            $table->string('section');
-            $table->string('image');
-
+            $table->unsignedBigInteger('student_id');
+            $table->string('payment');
+            $table->foreign('student_id')->references('student_id')->on('students'); 
             $table->timestamps();
         });
     }
@@ -32,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('imageups');
+        Schema::dropIfExists('payments');
     }
 };

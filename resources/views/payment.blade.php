@@ -25,50 +25,49 @@
                     <h4>Add Student</h4>
                 </div>
                 <div class="card-body">
+                    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 
-                    <form action="{{ url('insert-info') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ url('payment') }}" method="POST" enctype="multipart/form-data">
                         @csrf
-               
                         <div class="form-group mb-3">
-                            <label for="">Student Name</label>
+                            <label for=""><b>Student Name</br></label>
                             <select name="name" class="form-control">
 
                                 <option>Please Select a Category</option>
                             
-                    @foreach ($imageup as $item)
+                    @foreach ($student as $item)
 
-                                <option $find=value="{{$item->id}}">{{$item->name}}</option>
+                                <option name="id" value="{{$item->id}}">{{$item->name}}</option>
                                
-                              @endforeach
-                                
+                                @endforeach
                                
-                            </select>
+                            </select></br>
 
-
-                           
-                            <tr>
-                               
-                                
-                            </tr>
                             
-    
-                             
+                            
                               
                        
-                          
-                      
+                        </div>
+                        
+                        <div class="form-group mb-3">
+                            <label><b>payment</br></label>
+                     <input  class="" type="text" class="form-control" name="payment">
+                   
+                        </div>
+                        <input type="submit" class="btn btn-success" value="submit">
                        
                      
                        
-                            <label for="">Student payment</label>
-                            <input type="text" name="paymet" class="form-control">
-                   
-                        <div class="form-group mb-3">
-                            <button type="submit" class="btn btn-primary">Save Student</button>
-                        </div>
-
                     </form>
-
+                   
                 </div>
             </div>
         </div>
